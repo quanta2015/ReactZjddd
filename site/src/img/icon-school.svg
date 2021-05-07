@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="icon-school" transform="matrix(0.8,0,0,0.8,0,6.39947)">
+        <path d="M0,28L0,62C0,63.105 0.895,64 2,64L12,64L12,24L4,24C1.791,24 0,25.791 0,28ZM45,22L42,22L42,17C42,16.448 41.553,16 41,16L39,16C38.448,16 38,16.448 38,17L38,25C38,25.552 38.448,26 39,26L45,26C45.553,26 46,25.552 46,25L46,23C46,22.448 45.553,22 45,22ZM62.219,14.005L42.219,0.671C40.878,-0.222 39.122,-0.222 37.781,0.671L17.781,14.005C16.67,14.746 16,15.997 16,17.333L16,64L32,64L32,46C32,44.895 32.895,44 34,44L46,44C47.105,44 48,44.895 48,46L48,64L64,64L64,17.334C64,15.996 63.331,14.746 62.219,14.005ZM40,32C34.478,32 30,27.523 30,22C30,16.478 34.478,12 40,12C45.523,12 50,16.478 50,22C50,27.523 45.523,32 40,32ZM76,24L68,24L68,64L78,64C79.105,64 80,63.105 80,62L80,28C80,25.791 78.209,24 76,24Z" style="fill:white;fill-rule:nonzero;"/>
+    </g>
+</svg>
