@@ -34,10 +34,19 @@ class Home extends React.Component {
       pg: 1,
       sel: 0,
       selImgId:0,
+      mobile: false,
     }
   }
 
+  componentWillUnmount() {
+    document.querySelector('.m-footer').classList.remove('fn-hide')
+  }
+
   async componentDidMount() {
+    if (document.querySelector('html').clientWidth<1000) {
+      document.querySelector('.m-footer').classList.add('fn-hide')
+    }
+
     this.setState({ loading: true })
     let p = await this.props.mainStore.getProj()
     this.setState({ loading: false,proj: p.proj, projsel: p.proj.filter(o=>{return (o.type==this.state.cur)}) })
@@ -107,7 +116,7 @@ class Home extends React.Component {
               工程案例
             </p>
 
-            <Menu onClick={this.selMain} selectedKeys={[cur]} mode="horizontal">
+            <Menu className="m-menu" onClick={this.selMain} selectedKeys={[cur]} mode="horizontal">
               <Menu.Item key="0" icon={dsg}>工程设计</Menu.Item>
               <Menu.Item key="1" icon={bag}>工程总承包</Menu.Item>
               <Menu.Item key="2" icon={adv}>图审咨询</Menu.Item>
@@ -132,7 +141,7 @@ class Home extends React.Component {
               )}
             </div>
 
-            <Pagination defaultCurrent={1} pageSize={pagesize} total={length} onChange={this.selPage} />
+            <Pagination className="m-page" defaultCurrent={1} pageSize={pagesize} total={length} onChange={this.selPage} />
           </div>
 
           {(this.state.show)&&
@@ -148,12 +157,12 @@ class Home extends React.Component {
                   </li>
                 )}
               </div>
-              <div className="m-tl">{projTitle}</div>
+              <div className="m-tl"><span>{projTitle}</span></div>
               <div className="m-date">{projDate}</div>
               <div className="m-cnt">{projCnt}</div>
             </div>
             <div className="m-wrap_r">
-              <div className="m-btn" onClick={this.doClose}><img src={retu} />返回</div>
+              <div className="m-btn" onClick={this.doClose}><img src={retu} /><span>返回</span></div>
               {projRnd.map((item,i)=>
                 <div className="m-item" onClick={this.selProj.bind(this,item._id)}>
                   {item.date} - {item.title}

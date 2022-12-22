@@ -63,14 +63,15 @@ class NavWrapper extends React.Component {
 
           {(show)&&
           <div className="m-menu_wrap">
-            <Menu theme="dark" 
+            <Menu theme="light" 
                   className="m-menu"
                   selectedKeys={[cur]}
                   onClick={this.doMenu} 
-                  mode={(mobile)?"inline":"horizontal"} 
+                  mode={(mobile)?"inline":"horizontal"}
+                  defaultOpenKeys={(mobile)?["about"]:[]}
             >
               <Menu.Item key="/" >首页</Menu.Item>
-              <SubMenu title="院况简介">
+              <SubMenu title="院况简介" key="about">
                 <Menu.ItemGroup>
                   <Menu.Item key="intr">设计院简介</Menu.Item>
                   <Menu.Item key="fram">组织架构 </Menu.Item>
@@ -100,7 +101,7 @@ class NavWrapper extends React.Component {
             <span className="m-slash">/ </span>
             <span>地址：杭州市西湖区省府路27号 <em className="m-slash">/ </em></span>
             <span>电话：0571-87051402</span><br />
-            <small>© 浙江东都建筑设计研究院有限公司 All Rights Reserved. <a href="http://icp.chinaz.com/info?q=zjddd.com">浙ICP备19009687号-1</a> </small>
+            <small>© 浙江东都建筑设计研究院有限公司 All Rights Reserved. <a href="https://beian.miit.gov.cn">浙ICP备19009687号-1</a> </small>
           </p>
         </div>
       </div>

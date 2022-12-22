@@ -16,29 +16,42 @@ class Home extends React.Component {
       desi:[],
       proj:[],
       cur: 0,
+      mobile:false,
     }
   }
 
   async componentDidMount() {
+    let mobile = (document.querySelector('html').clientWidth<1000)?true:false
     this.setState({ loading: true })
     let n = await this.props.mainStore.getDesi()
-    console.log(n)
-    this.setState({ loading: false,desi: n.desi, proj:n.desi[0].projectsId})
-
-    
+    this.setState({ loading: false,
+                    desi: n.desi, 
+                    proj:n.desi[0].projectsId,
+                    mobile: mobile})
   }
 
 
   selDesi =(i)=> {
-    let {desi} = this.state
+    let {desi,mobile} = this.state
+    if (mobile) return;
     this.setState({cur:i, proj:desi[i].projectsId})
+  }
+
+  doNext =(e)=>{
+    let mk = (e==0)?-1:1
+    let cur = this.state.cur + mk
+    if (cur>2) {
+      cur = 0
+    }else if (cur<0) {
+      cur = 2
+    }
+    this.setState({cur:cur})
   }
 
 
   render() {
     let {desi,proj,cur} = this.state
     let desc = (desi.length!==0)?desi[cur].desc:''
-    console.log(proj)
 
 
     return (
@@ -51,6 +64,8 @@ class Home extends React.Component {
                   <p>{item.name}</p>
                   <label>{item.title}</label>
                   <img src={`${API_SERVER}/${item.img}`} />
+                  <div className="m-btn m-pre" onClick={this.doNext.bind(this,0)}></div>
+                  <div className="m-btn m-next" onClick={this.doNext.bind(this,1)}></div>
                 </div>
               )}
             </div>
@@ -61,7 +76,7 @@ class Home extends React.Component {
                 <div className="m-about">{desc}</div>
                 {proj.map((item,i)=>
                   <div className="m-link" key={i}>
-                    <a href="item/project.html?id=">{item.date} - {item.title}</a>
+                    <span>{item.date} - {item.title}</span>
                   </div>
                 )}
               </div>

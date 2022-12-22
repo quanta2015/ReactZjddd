@@ -58,3 +58,64 @@
 
 }
 
+
+
+@media screen and (max-width: 1000px) {
+
+  .g-intr {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: #000;
+    font-family: "microsoft yahei";
+    background: #f9f9f9;
+    min-height: calc( 100vh - 65px - 256px);
+
+    .m-intr {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+
+      .m-tl {
+        display: flex;
+        align-items: center;
+        color: #4275B3;
+        font-size: 18px;
+        margin-bottom: 20px;
+
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 10px;
+        }
+      }
+
+      .m-cnt {
+        font-size: 14px;
+        white-space: pre-wrap;
+        font-family: inherit;
+        line-height: 2;
+        max-width: none;
+        padding: 10px 20px;
+        border: 1px solid #eee;
+
+        li {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        p {
+          color: #666;
+          white-space: pre-wrap;
+        }
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,135 @@
+@media screen and (min-width: 1000px) {
+  .m-form {
+    .m-ipti {
+      width: 120px;
+    }
+    
+    .m-ipt {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 10px;
+
+
+
+      &>.m-del {
+        top: 20px;
+      }
+
+      &:hover>.m-del {
+        display: block;
+      }
+
+      &>span {
+        font-size: 12px;
+        color: #333;
+        margin-bottom: 2px;
+      }
+
+      &>img {
+        width: 120px;
+        height: 90px;
+        border: 1px solid #eee;
+      }
+
+      &>input[type=file] {
+        opacity: 0;
+        position: absolute;
+        width: 120px;
+        height: 90px;
+        z-index: 10;
+      }
+
+      .m-btn {
+        background:#cc0000;
+        color: #fff;
+      }
+
+      .m-up {
+        width: 120px;
+        height: 90px;
+        background: #eee;
+        border: 3px dashed #ccc;
+        font-size: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #ccc;
+      }
+    }
+  }
+
+  .g-carl {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+
+    &>.m-tl {
+      display: flex;
+      font-size: 14px;
+      background: #333;
+      padding: 5px 20px;
+      color: #fff;
+    }
+
+    .m-list {
+      margin: 40px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      padding: 10px;
+
+      .m-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px 10px 0;
+        width: calc( (100% - 40px) / 5 );
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: .5s;
+        &:hover>.m-del {
+          display: block;
+        }
+
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        &:nth-child(5n) {
+          margin-right: 0;
+        }
+
+        .m-txt {
+          background:#eee;
+          color: #333;
+          text-align: center;
+          padding: 5px;
+        }
+      }
+
+      .m-page {
+        width: 100%;
+      }
+    }
+
+    .m-menu {
+      background: #eee;
+      display: flex;
+      padding: 10px;
+      border-bottom: 1px solid #dfdfdf;
+
+      .m-btn {
+        background: #cc0000;
+        color: #fff;
+        border-color: #aa0000;
+      }
+    }
+  }
+
+}

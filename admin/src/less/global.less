@@ -1,0 +1,163 @@
+
+body {
+  -webkit-font-smoothing: antialiased;
+  color: #3C4E65;
+  padding: 0;
+  margin: 0;
+  font-family: Georgia,Microsoft Yahei;
+  color: #666;
+  font-size: 12px;
+  /*font-family: Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;*/
+}
+
+
+a { color: #333; }
+
+button + button { margin-left: 5px; }
+
+
+#root {
+  width: 100%;
+  min-height: 100%;
+  background: #fefefe;
+}
+
+.c-daily {
+  background: #3EBB5F!important;
+    color: #fff!important;
+    border: 1px solid #3EBB5f!important;
+    a {
+      color: #fff
+    }
+}
+
+.c-red {
+  background: #dd0000!important;
+  color: #fff!important;
+  border: 1px solid #dd0000!important;
+}
+
+
+.c-blue {
+  background: #3366cc!important;
+  color: #fff!important;
+  border: 1px solid #3d74aa!important;
+}
+
+.c-yell {
+  background: #e5a800!important;
+  color: #fff!important;
+  border: 1px solid #e5a800!important;
+}
+
+.c-grey {
+    background: #eee !important;
+    color: #666!important;
+    border: 1px solid #FAFBFC!important;
+}
+
+/*.c-grey {
+    background: #FAFBFC !important;
+    color: #666!important;
+    border: 1px solid #FAFBFC!important;
+}*/
+
+.c-black {
+    background: #666 !important;
+    color: #fff!important;
+    border: 1px solid #666!important;
+}
+
+.c-green {
+  background: #269F9A!important;
+  color: #fff!important;
+  border: 1px solid #269F9A!important;
+}
+
+.c-orange {
+  background: #fa8c16!important;
+  color: #fff!important;
+  border: 1px solid #fa8c16!important;
+}
+
+
+.fn-hide {
+  display: none!important
+}
+
+.fn-show {
+  display: block!important
+}
+
+.fn-show-f {
+  display: flex!important
+}
+
+
+.m-icon {
+  fontSize: 16px;
+  height: 18px;
+  margin-right:5px;
+}
+
+
+.m-btn {
+  position: relative;
+  display: flex;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  justify-content: center;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &>img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+}
+
+.m-del {
+  position: absolute;
+  display: none;
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  background: rgba(200,0,0,.8);
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 20;
+
+  
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 5px;
+    border-left: 2px solid #eee;
+    height: 20px;
+    width: 0;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+
+

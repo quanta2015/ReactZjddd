@@ -1,10 +1,10 @@
 var mode = process.env.REACT_APP_MY_VAR
-var API_SERVER = 'http://localhost'
-// var API_SERVER = 'http://zjddd.com'
+// var API_SERVER = 'http://localhost'
+var API_SERVER = 'https://zjddd.com'
 
 if (mode === 'development') {
-  API_SERVER = 'http://localhost'
-  // API_SERVER = 'http://zjddd.com'
+  // API_SERVER = 'http://localhost'
+  API_SERVER = 'https://zjddd.com'
 }
 
 if (mode === 'production') {

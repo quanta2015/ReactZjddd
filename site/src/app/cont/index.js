@@ -1,12 +1,12 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import { inject } from 'mobx-react'
-import { Carousel,Spin,Pagination } from 'antd';
+import { Input,Button,Carousel,Spin,Pagination,message } from 'antd';
 import { API_SERVER } from 'constant/apis'
 import style from './style.less';
 import cont from '../../img/icon-contact.svg'
 import msg from '../../img/icon-msg.svg'
-
+const { TextArea } = Input;
 
 var dep = [{
   dep: "市场部 - 孙工",
@@ -29,6 +29,11 @@ class Home extends React.Component {
       news:[],
       pagesize: 10,
       cur: 1,
+      name:'',
+      email:'',
+      phone:'',
+      msg:'',
+
     }
   }
 
@@ -40,11 +45,53 @@ class Home extends React.Component {
     this.setState({ cur: pn })
   }
 
+  chgName=(e)=>{
+    this.setState({name: e.currentTarget.value})
+  }
+  chgEmail=(e)=>{
+    this.setState({email: e.currentTarget.value})
+  }
+  chgPhone=(e)=>{
+    this.setState({phone: e.currentTarget.value})
+  }
+  chgMsg=(e)=>{
+    this.setState({msg: e.currentTarget.value})
+  }
+  doAddMsg=async(e)=>{
+    let {name,email,phone,msg} = this.state
+    if (name.trim() ==='') {
+      message.error('请输入姓名！')
+      return
+    }else if (email.trim() ==='') {
+      message.error('请输入邮箱！')
+      return
+    }else if (msg.trim() ==='') {
+      message.error('请输入电话！')
+      return
+    }else if (phone.trim() ==='') {
+      message.error('请输入电话！')
+      return
+    }else {
+      let params = {
+        name:name,
+        email:email,
+        phone:phone,
+        msg:msg,
+      }
+      this.setState({ loading: true })
+      let r = await this.props.mainStore.addMsg(params)
+      message.success(r.msg)
+      this.setState({loading: false, list: r.desi, name:'',msg:'',phone:'',email:'' })
+    }
+  }
+
+
+
+
 
   render() {
-    let {news,cur,pagesize} = this.state
-    let list = news.filter((item,i)=> {return ((i<cur*pagesize)&&(i>(cur-1)*pagesize))})
-    let length = news.length
+    let {name,email,phone,msg} = this.state
+    
 
     return (
       <Spin spinning={this.state.loading}>
@@ -75,12 +122,13 @@ class Home extends React.Component {
           <section className="m-addr">
             <iframe 
               className="contact__map"
-              width='1120' 
+              width='100%' 
               height='600'
               frameBorder='0' 
               src='https://m.amap.com/navi/?dest=120.151794,30.264233&destName=浙江东都建筑设计研究院有限公司&hideRouteIcon=1&key=9d4281acb32d035f8ea4c3abb136451c'
             ></iframe>
           </section>
+
     
           <section>
             <p className="m-tl"><img src={msg} />给我们留言</p>
@@ -88,28 +136,28 @@ class Home extends React.Component {
               <div className="m-row">
                 <label><span>*</span>姓名</label>
                 <div>
-                  <input type="text" className="form-control" placeholder="输入您的姓名"/>
+                  <Input placeholder="输入您的姓名" value={name} onChange={this.chgName} />
                   <div className="invalid-feedback">请填写姓名</div>
                 </div>
               </div>
               <div className="m-row">
                 <label><span>*</span>邮箱</label>
                 <div>
-                  <input type="email" className="form-control" placeholder="输入您的邮箱"/>
+                  <Input placeholder="输入您的邮箱" value={email}  onChange={this.chgEmail} />
                   <div className="invalid-feedback">请填写有效的电子邮箱</div>
                 </div>
               </div>
               <div className="m-row">
                 <label><span>* </span>电话号码</label>
                 <div>
-                  <input type="tel" pattern="^1(3|4|5|7|8)\d{9}$" className="form-control" placeholder="输入您的电话号码"/>
+                  <Input placeholder="输入您的电话号码" value={phone}  onChange={this.chgPhone} />
                   <div className="invalid-feedback">请填写有效的手机号码</div>
                 </div>
               </div>
               <div className="m-row">
                 <label><span>* </span>留言内容</label>
                 <div>
-                  <textarea className="form-control" placeholder="留下您的建议或者意见" rows="8"></textarea>
+                  <TextArea placeholder="留下您的建议或者意见" rows="8" value={msg}  onChange={this.chgMsg}></TextArea>
                   <div className="invalid-feedback">请填写留言内容</div>
                 </div>
               </div>
@@ -119,7 +167,7 @@ class Home extends React.Component {
               <div className="m-row">
                 <label></label>
                 <div>
-                  <button className="m-btn" type="submit">确认提交</button>
+                  <div className="m-btn" type="submit" onClick={this.doAddMsg}>确认提交</div>
                 </div>
               </div>
               

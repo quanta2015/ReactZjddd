@@ -26,6 +26,7 @@ class Data extends React.Component {
 
   render() {
     let {honr,cur} = this.state
+    // honr = []
 
     return (
       <div className="g-honr">
@@ -37,7 +38,7 @@ class Data extends React.Component {
           <div className="m-cnt">
             {honr.map((item,i)=>
               <li key={i}>
-                <img src={`${API_SERVER}/${item}`} />
+                <img src={`${API_SERVER}/${item.img}`} />
               </li>
             )}
           </div>

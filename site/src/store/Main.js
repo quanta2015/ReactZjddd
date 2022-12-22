@@ -10,6 +10,11 @@ class Main extends BaseActions {
   currUser = undefined
 
   @action
+  async getAno() {
+    return await this.get(urls.API_GET_ANO)
+  }
+
+  @action
   async getCarls() {
     return await this.get(urls.API_GET_CARL)
   }
@@ -38,8 +43,11 @@ class Main extends BaseActions {
   async getHonr() {
     return await this.get(urls.API_GET_HONR)
   }
-  
 
+  @action
+  async addMsg(params) {
+    return await this.post(urls.API_ADD_MSG,params)
+  }
 
 
 }

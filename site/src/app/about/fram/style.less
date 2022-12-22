@@ -52,3 +52,56 @@
 
 }
 
+
+
+@media screen and (max-width: 1000px) {
+
+  .g-fram {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: #000;
+    font-family: "microsoft yahei";
+    background: #f9f9f9;
+    min-height: calc( 100vh - 65px - 256px);
+
+    .m-sect {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+
+      .m-tl {
+        display: flex;
+        align-items: center;
+        color: #4275B3;
+        font-size: 18px;
+        margin-bottom: 30px;
+
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 10px;
+        }
+      }
+
+      .m-cnt {
+        display: flex;
+        flex-direction: column;
+
+        .m-group-pc {
+          display: none;
+        }
+        .m-group-mb {
+          display: flex;
+        }
+
+      }
+
+    }
+
+  }
+
+}

@@ -1,20 +1,51 @@
 var express = require('express');
 var axios = require('axios');
 var fs = require('fs');
-var router = express.Router();
+var router = express.Router()
+var dayjs = require('dayjs')
 
 const getTokenUrl = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxe9896d3baf022cd3&secret=d2d9696ba2c11eede4f55a5460acfb71'
 
 router.get('/getNews', (req, res) => {
-  let ret = []
   let news = fs.readFileSync(`./data/news.json`,'utf-8')
   res.status(200).json({ code: 200, news: JSON.parse(news).news })
 })
+
+router.post('/addNews', (req, res) => {
+  const { title, content } = req.body
+  let r = JSON.parse(fs.readFileSync('./data/news.json','utf-8'))
+  r.news.unshift({
+    id:dayjs().format('YYYYMMDDhhmmssSSS'),
+    title: title,
+    content:content,
+    date: dayjs().format('YYYY-MM-DD')
+  })
+  fs.writeFileSync('./data/news.json', JSON.stringify(r))
+  res.status(200).json({ code: 200, news: r.news })
+})
+
+
+router.post('/delNews', (req, res) => {
+  const { id } = req.body
+  let index = -1
+  let r = JSON.parse(fs.readFileSync(`./data/news.json`,'utf-8'))
+  r.news.forEach((item,i)=>{
+    if (item.id === id) {
+      index = i
+    }
+  })
+  r.news.splice(index, 1)
+  fs.writeFileSync('./data/news.json', JSON.stringify(r))
+  res.status(200).json({ code: 200, news: r.news })
+});
+
 
 
 router.get('/getWeNews',function(req,res,next) {
   
   axios.get(getTokenUrl).then( (r)=> {
+
+    console.log(r)
     var token = r.data.access_token
     var data = {
       "type":"news",
@@ -38,6 +69,8 @@ router.get('/getWeNews',function(req,res,next) {
         }
         ret.push(o)
       }
+
+      console.log(ret)
       
       res.send(JSON.stringify({msg:"wechat news success",'news':ret}));
     })

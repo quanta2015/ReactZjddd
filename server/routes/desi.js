@@ -29,6 +29,17 @@ router.get('/getDesi', (req, res) => {
   res.status(200).json({ code: 200, desi: JSON.parse(desi).desi })
 })
 
+router.post('/savDesi', (req, res) => {
+  const { list } = req.body
+  let r = JSON.parse(fs.readFileSync(`./data/desi.json`,'utf-8'))
+  r.desi = list
+  fs.writeFileSync('./data/desi.json', JSON.stringify(r))
+  console.log(r.desi)
+  res.status(200).json({ code: 200, desi: r.desi })
+});
+
+
+
 // router.post('/addDesigner', designerImgUpload.single('designer_img'), (req, res) => {
 //   var { name, title, desc, projectsId } = req.body;
 //   projectsId = JSON.parse(projectsId)

@@ -98,6 +98,7 @@
         border: none;
         padding: 10px;
         margin-top: 20px;
+        text-align: center;
       }
 
       .invalid-feedback {
@@ -115,8 +116,115 @@
     
 
   }
-
 }
 
 @media screen and (max-width:1000px) {
+  .g-cont {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: #000;
+    font-family: "microsoft yahei";
+    background: #f9f9f9;
+
+    .m-tl {
+      display: flex;
+      align-items: center;
+      color: #4275B3;
+      font-size: 18px;
+
+      img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+      }
+
+    }
+
+    .m-dep {
+      display: flex;
+      flex-direction: column;
+
+      .m-item {
+        flex: 1 1;
+        border: 1px solid #4275B3;
+        padding: 20px;
+        margin-bottom: 10px;
+
+        .m-dep_name {
+          background: #4275B3;
+          color: #fff;
+          padding: 8px 20px;
+          margin: -20px -20px 20px -20px;
+          font-size: 16px;
+        }
+
+      }
+    }
+
+    .m-addr  {
+      margin: 20px 0;
+      width: 100%;
+    } 
+
+    .m-form {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ccc;
+      padding: 10px 5px;
+      justify-content: center;
+      align-items: center;
+
+      .m-row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 10px 10px 10px;
+        font-size: 14px;
+
+        div {
+          width: 100%;
+          margin-top: 5px;
+        }
+
+        input,textarea {
+          padding: 5px 10px;
+          border: 1px solid #ccc;
+          width: 100%;
+          outline: none;
+        }
+
+        label {
+          font-size: 12px;
+
+          span {
+            color: #ee0000;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .m-btn {
+        background: #4275B3;
+        color: #fff;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .invalid-feedback {
+        display: none;
+      }
+
+      .m-pri {
+        display: flex;
+        color: #dd0000;
+        padding: 0 15px;
+        text-align: justify;
+      }
+    }
+  }
 }
